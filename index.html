@@ -15,9 +15,50 @@
       var container = document.getElementById(containerId);
       container.style.display = container.style.display === 'none' ? 'flex' : 'none';
     }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const sections = document.querySelectorAll('h2'); // Select all sections by their headers
+      const sidebarLinks = document.querySelectorAll('.sidebar a'); // Select all sidebar links
+
+      // Create an IntersectionObserver to watch each section
+      const observer = new IntersectionObserver(
+        entries => {
+          entries.forEach(entry => {
+            const sectionId = entry.target.id;
+            const link = document.querySelector(`.sidebar a[href="#${sectionId}"]`);
+
+            // Highlight the link if the section is at least partially visible
+            if (entry.isIntersecting) {
+              link.classList.add('active');
+            } else {
+              link.classList.remove('active');
+            }
+          });
+        },
+        {
+          root: null,         // Observe in the viewport
+          threshold: 0.5      // Trigger when 50% of the section is visible
+        }
+      );
+
+      // Observe each section
+      sections.forEach(section => {
+        observer.observe(section);
+      });
+    });
+
   </script>
 
-  <h1>Yanmei's Game Gallery</h1>
+  <div class="sidebar">
+    <a href="#game-gallery" class="sidebar-link">Game Gallery</a>
+    <a href="#web-game-engine" class="sidebar-link">Web-First, Accessible Game Engine</a>
+    <a href="#soul-of-the-forest" class="sidebar-link">Soul of the Forest</a>
+    <a href="#bio-452" class="sidebar-link">Field Ecology of Snail-Fungus</a>
+    <a href="#crazy-canvas" class="sidebar-link">Crazy Canvas</a>
+    <a href="#zelda-remaster" class="sidebar-link">Zelda 1986 Remaster</a>
+  </div>
+
+  <h1 id="game-gallery">Yanmei's Game Gallery</h1>
   <hr>
   <p>
     Hi! I'm Yanmei, a game/software developer from University of Michigan (CS, 2025) specializing in
@@ -25,23 +66,25 @@
     with
     <strong>Jira and Confluence</strong>.
 
-    I'm passionate in game and game development, and I'm looking for a game-dev full-time job in 2025.
-    Here is a collection of some of my favorite game projects!
+    I'm passionate in game and game development, and here is a collection of some of my favorite game projects!
   </p>
   Download my game dev resume: <a href="Downloadable/Yanmei_Wang_Resume_GameDev.pdf" download>link</a>
 
   <hr>
-  <h2>Web-First, Accessible Game Engine (current project)</h2>
-  <div class="image-container">
-    <div class="image-item">
-      <img src="src/Timber_2.png" alt=" ">
-      <!-- <div class="caption">Start Menu</div> -->
-    </div>
-    <div class="image-item">
-      <img src="src/Timber_1.png" alt=" ">
-      <!-- <div class="caption">Thumbnail</div> -->
-    </div>
+  <h2 id="web-game-engine">Web-First, Accessible Game Engine (current project)</h2>
+  <div class="video-container">
+    <video controls width="100%" height="auto">
+      <source src="src/TimberTower.mp4" type="video/mp4"> <!-- Fallback format for better compatibility -->
+      Your browser does not support the video tag.
+    </video>
   </div>
+  <!-- <div class="gif-container">
+    <img src="src/TimberTowerFunction.gif" alt="A tower at work" width="100%" height="auto">
+  </div>
+  <div class="gif-container">
+    <img src="src/TimberTowerBug.gif" alt="A bug at work" width="100%" height="auto">
+  </div> -->
+
 
   <h3>About the Project:</h3>
   <p>A genre-focused, web-first game engine with the accessibility of MIT Scratch and the professionalism / commercial
@@ -62,7 +105,7 @@
 
   <hr>
 
-  <h2>Soul of the Forest</h2>
+  <h2 id="soul-of-the-forest">Soul of the Forest</h2>
   <div class="image-container">
     <div class="image-item">
       <img src="src/SotF_header.jpg" alt=" ">
@@ -115,7 +158,7 @@
     games. My task also relied on the LDTK software for tilemap implementation. </p>
 
   <hr>
-  <h2>BIOLOGY 452: Field Ecology of Snail-Fungus Interaction</h2>
+  <h2 id="bio-452">BIOLOGY 452: Field Ecology of Snail-Fungus Interaction</h2>
   <div class="image-container">
     <div class="image-item">
       <img src="src/p3-cover.png" alt=" ">
@@ -190,7 +233,7 @@
   </h3>
   <h3>Codebase: <a href="https://github.com/dawnsqrl/eecs494-p3">BIO 452 - Github</a></h3>
   <hr>
-  <h2>Crazy Canvas</h2>
+  <h2 id="crazy-canvas">Crazy Canvas</h2>
 
   <div class="image-container">
     <div class="image-item">
@@ -230,7 +273,7 @@
   <h3>Codebase: <a href="https://github.com/dawnsqrl/eecs494-p3">Crazy Canvas - Github</a></h3>
 
   <hr>
-  <h2>Legend of Zelda 1986 - Unity Remaster</h2>
+  <h2 id="zelda-remaster">Legend of Zelda 1986 - Unity Remaster</h2>
 
   <div class="image-container">
     <div class="image-item">

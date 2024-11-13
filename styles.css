@@ -1,11 +1,14 @@
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Open Sans', sans-serif;
     color: white;
     text-align: left;
     justify-content: center;
     align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
+    margin-left: 260px;
     padding: 20px;
     box-sizing: border-box;
     text-shadow: 8px 8px 10px #0000008c;
@@ -32,10 +35,8 @@ h3 {
 p {
     font-size: 18px;
     line-height: 1.6;
-    /* Add line height for better readability */
     margin-bottom: 10px;
 }
-
 
 img {
     width: auto;
@@ -51,14 +52,11 @@ img {
     align-items: center;
     margin-bottom: 20px;
     transition: transform 0.3s, box-shadow 0.3s;
-    /* Smooth transition */
 }
 
 .image-item:hover {
     transform: scale(1.05);
-    /* Slightly enlarge the block */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-    /* Add shadow effect */
 }
 
 .image-container {
@@ -66,14 +64,6 @@ img {
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
-}
-
-.image-container .image-item {
-    flex: 1 1 45%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
 }
 
 .caption {
@@ -85,6 +75,84 @@ img {
     margin-top: 10px;
 }
 
+.video-container {
+    position: relative;
+    max-width: 800px;
+    /* Set a max width for the video */
+    margin: 20px auto;
+    /* Center the video and add top/bottom margin */
+    border: 3px solid #ffffff;
+    /* Optional border */
+    border-radius: 8px;
+    /* Rounded corners */
+    overflow: hidden;
+    /* Ensures video corners are rounded if border-radius is applied */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Shadow for a subtle 3D effect */
+}
+
+.video-container video {
+    width: 100%;
+    /* Ensures the video takes the full width of its container */
+    height: auto;
+    /* Maintains the video’s aspect ratio */
+    display: block;
+    /* Removes any potential extra space below the video */
+}
+
+
+/* Sidebar styling */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 240px;
+    /* Increase sidebar width if needed */
+    height: 100%;
+    background-color: #2c2f33;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    padding-top: 20px;
+    overflow-y: auto;
+    z-index: 1;
+}
+
+.sidebar a {
+    display: block;
+    padding: 10px 20px;
+    color: rgb(130, 205, 255);
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+    font-weight: bold;
+    color: #f93667;
+    /* Customize the color to suit your theme */
+}
+
+
+/* Adjusted content area to prevent overlap */
+/* .content { */
+/* margin-left: 260px; */
+/* Matches sidebar width + extra padding */
+/* padding: 20px; */
+/* } */
+
+/* Adjust layout for smaller screens */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .content {
+        margin-left: 0;
+    }
+}
+
 a:link {
     color: rgb(130, 205, 255);
     background-color: transparent;
@@ -92,20 +160,19 @@ a:link {
 }
 
 a:visited {
-    color: rgb(180, 145, 255);
+    color: rgb(130, 205, 255);
     background-color: transparent;
     text-decoration: none;
 }
 
+/* Cursor trail effect */
 .cursor-trail {
     position: absolute;
     width: 15px;
     height: 15px;
     background-color: rgba(249, 54, 103, 0.6);
-    /* Color with transparency */
     border-radius: 50%;
     pointer-events: none;
-    /* Ensures no interference with page elements */
     transform: translate(-50%, -50%);
     animation: trail-animation 0.5s ease-out;
 }
