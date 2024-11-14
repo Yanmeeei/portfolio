@@ -1,0 +1,54 @@
+/* Sidebar styling */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 240px;
+    /* Increase sidebar width if needed */
+    height: 100%;
+    background-color: #2c2f33;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    padding-top: 20px;
+    overflow-y: auto;
+    z-index: 1;
+}
+
+.sidebar a {
+    display: block;
+    padding: 10px 20px;
+    color: rgb(130, 205, 255);
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+    font-weight: bold;
+    color: #f93667;
+    /* Customize the color to suit your theme */
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .content {
+        margin-left: 0;
+    }
+}
+
+a:link {
+    color: rgb(130, 205, 255);
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:visited {
+    color: rgb(130, 205, 255);
+    background-color: transparent;
+    text-decoration: none;
+}

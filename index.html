@@ -3,7 +3,7 @@
 
 <head>
   <title>The Portfolio of Yanmei Wang</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css/main.css">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Merriweather:wght@700&display=swap"
     rel="stylesheet">
 </head>
@@ -46,6 +46,42 @@
         observer.observe(section);
       });
     });
+    // Function to toggle visibility of image containers
+    // function toggleImages(containerId) {
+    //   var container = document.getElementById(containerId);
+    //   if (container.style.display === "none" || container.style.display === "") {
+    //     container.style.display = "flex"; // Change "none" to "flex" for consistent layout when showing
+    //   } else {
+    //     container.style.display = "none";
+    //   }
+    // }
+
+    // Function to show the large image in a modal
+    function showLargeImage(src, alt) {
+      var modal = document.getElementById("imageModal");
+      var modalImg = document.getElementById("largeImage");
+      var captionText = document.getElementById("caption");
+
+      modal.style.display = "block";
+      modalImg.src = src;
+      captionText.innerHTML = alt;
+    }
+
+    // Function to hide the modal
+    function hideLargeImage() {
+      var modal = document.getElementById("imageModal");
+      modal.style.display = "none";
+    }
+
+    // Event Listener for Image Items to show the Modal
+    document.addEventListener("DOMContentLoaded", function () {
+      const imageItems = document.querySelectorAll(".image-item img");
+      imageItems.forEach(function (img) {
+        img.addEventListener("click", function () {
+          showLargeImage(img.src, img.alt);
+        });
+      });
+    });
 
   </script>
 
@@ -57,7 +93,11 @@
     <a href="#crazy-canvas" class="sidebar-link">Crazy Canvas</a>
     <a href="#zelda-remaster" class="sidebar-link">Zelda 1986 Remaster</a>
   </div>
-
+  <div id="imageModal" class="modal" onclick="hideLargeImage()">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="largeImage">
+    <div id="caption"></div>
+  </div>
   <h1 id="game-gallery">Yanmei's Game Gallery</h1>
   <hr>
   <p>
@@ -65,8 +105,7 @@
     <strong>Unity, Godot, and LDTK</strong>, skilled in <strong>C#, C++, and Python</strong>.
 
     I'm passionate in game and game development, and here is a collection of some of my favorite game projects!
-  </p>
-  Download my game dev resume: <a href="Downloadable/Yanmei_Wang_Resume_GameDev.pdf" download>link</a>
+  </p> <a href="Downloadable/Yanmei_Wang_Resume_GameDev.pdf" class="highlight-link" download>My GameDev Resume</a>
 
   <hr>
   <h2 id="web-game-engine">Web-First, Accessible Game Engine (current project)</h2>
@@ -83,238 +122,409 @@
     <img src="src/TimberTowerBug.gif" alt="A bug at work" width="100%" height="auto">
   </div> -->
 
+  <!-- About the Project Section -->
+  <div id="about-project-timber" class="card about-section">
+    <div class="card-header">
+      <h3>About the Project</h3>
+    </div>
+    <div class="card-body">
+      <p>A genre-focused, web-first game engine with the accessibility of MIT Scratch and the professionalism/commercial
+        flexibility of RPG Maker. Built atop the open-source, Unity-like Godot Engine and powered by a scalable cloud
+        stack (AWS), this project provides beginning game designers with a fast and effective means to prototype their
+        RPG, RTS, and Tower Defense game ideas, while giving UMich students “in-the-field” gamedev and webdev
+        experience. Learn more at <a href="https://bit.ly/timberengine">here</a>.</p>
+    </div>
+  </div>
 
-  <h3>About the Project:</h3>
-  <p>A genre-focused, web-first game engine with the accessibility of MIT Scratch and the professionalism / commercial
-    flexibility of RPG Maker. Built atop the open-source, Unity-like Godot Engine and powered by a scalable cloud stack
-    (AWS), this project will provide beginning game designers with a fast and effective means to prototype their RPG,
-    RTS, and Tower Defense game ideas, while providing our UMich students with “in-the-field” gamedev and webdev
-    experience. Learn more at <a href="https://bit.ly/timberengine">here</a>
-  </p>
+  <!-- My Contributions Section -->
+  <div id="my-contributions-timber" class="card contributions-section">
+    <div class="card-header">
+      <h3>My Contributions</h3>
+    </div>
+    <div class="card-body">
+      <ul>
+        <li>🔔 Implemented an in-game toast message system using C# with Godot and the Eventbus library.</li>
+        <li>🏰 Created generalizable tower placement/removal functionalities in Godot (C#), including animation
+          processes and actor registration, and integrated them with the web-based data system.</li>
+      </ul>
+    </div>
+  </div>
 
-  <h3>My Contributions:</h3>
-  <p>I implemented an in-game toast message system using C# Godot and Eventbus library.
-    I also creating the generalizable tower placement/removal functionalities using Godot (C#), including animation
-    processes and actor registration, integrating them with the web-based data system.
-  </p>
-  <h3>Technology Used:</h3>
-  <p>My tasks heavily utilized C# and Godot Editor to implement the in-game toast message system and the functionalities
-    of the Towers. </p>
+  <!-- Technology Used Section -->
+  <div id="technology-used-timber" class="card tech-section">
+    <div class="card-header">
+      <h3>Technology Used</h3>
+    </div>
+    <div class="card-body">
+      <ul>
+        <li>💻 <strong>C#:</strong> Developed in-game functionalities, including the toast message system and tower
+          mechanisms.</li>
+        <li>🎮 <strong>Godot Editor:</strong> Utilized to implement and animate the in-game toast messages and create
+          tower placement functionalities.</li>
+      </ul>
+    </div>
+  </div>
 
   <hr>
 
-  <h2 id="soul-of-the-forest">Soul of the Forest</h2>
+  <h2 id="soul-of-the-forest">SOUL OF THE FOREST</h2>
   <div class="image-container">
     <div class="image-item">
-      <img src="src/SotF_header.jpg" alt=" ">
+      <img src="src/SotF_header.jpg" alt=" " style="width: 800px; height: auto;">
       <!-- <div class="caption">Header Image</div> -->
     </div>
   </div>
 
-  <h3>About the Project:</h3>
-  <p>Embark on a quest to unite the forest against the tyrannical king in an hour long, turn based RPG epic! Soul of the
-    Forest was created by a team of 55 students over the course of 2 semesters as a case study of modern turn-based
-    RPGs.</p>
-
-  <p>Check out the game at Steam store!
-    <a href="https://store.steampowered.com/app/2880650/Soul_of_the_Forest/?curator_clanid=1114354">Steam page</a>
-  </p>
-
-  <button class="show-button" onclick="toggleImages('SotF')">Show / Hide screenshots</button>
-
-  <div class="image-container" id="SotF" style="display: none;">
-    <div class="image-item">
-      <img src="src/SotF_CG.jpg" alt=" ">
-      <div class="caption">Game CG spotlight</div>
+  <!-- About the Project Section -->
+  <div id="about-project-sotf" class="card about-section">
+    <div class="card-header">
+      <h3>About the Project</h3>
     </div>
-
-    <div class="image-item">
-      <img src="src/SotF_env.jpg" alt=" ">
-      <div class="caption">Marketplace screenshot</div>
-    </div>
-
-    <div class="image-item">
-      <img src="src/SotF_dialogue.jpg" alt=" ">
-      <div class="caption">Dialogue screenshot</div>
-    </div>
-
-    <div class="image-item">
-      <img src="src/SotF_combat.jpg" alt=" ">
-      <div class="caption">Combat screenshot</div>
+    <div class="card-body">
+      <p>Embark on a quest to unite the forest against the tyrannical king in an hour-long, turn-based RPG epic! "Soul
+        of the Forest" was created by a team of 55 students over the course of 2 semesters as a case study of modern
+        turn-based RPGs.</p>
+      <p>Check out the game at the <a
+          href="https://store.steampowered.com/app/2880650/Soul_of_the_Forest/?curator_clanid=1114354"
+          class="highlight-link">Steam store</a>!
+      </p>
+      <!-- <button class="show-button" onclick="toggleImages('SotF')">Show / Hide screenshots</button> -->
+      <div class="image-container" id="SotF" style="display: flex;">
+        <div class="image-item">
+          <img src="src/SotF_CG.jpg" alt=" ">
+          <div class="caption">Game CG spotlight</div>
+        </div>
+        <div class="image-item">
+          <img src="src/SotF_env.jpg" alt=" ">
+          <div class="caption">Marketplace screenshot</div>
+        </div>
+        <div class="image-item">
+          <img src="src/SotF_dialogue.jpg" alt=" ">
+          <div class="caption">Dialogue screenshot</div>
+        </div>
+        <div class="image-item">
+          <img src="src/SotF_combat.jpg" alt=" ">
+          <div class="caption">Combat screenshot</div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <h3>My Contributions:</h3>
-  <p>This is a <a href="https://www.wolverinesoft.org/">WolverineSoft Studio</a> game. As a member of the programming
-    team, I designed and implemented multiple cutscenes using Unity built-in tools such as Playable Director. I
-    programmed various in-game interactions between the player character and the environment, created six level maps and
-    applied layers of tilesets using LDTK. We utilized Jira for project management, and Git for code version control and
-    cooperation.
-  </p>
-  <h3>Technology Used:</h3>
-  <p>My tasks heavily utilized C#, Unity, and the Eventbus library, as well as Unity's built-in functionalities for 2D
-    games. My task also relied on the LDTK software for tilemap implementation. </p>
+  <!-- My Contributions Section -->
+  <div id="my-contributions-sotf" class="card contributions-section">
+    <div class="card-header">
+      <h3>My Contributions</h3>
+    </div>
+    <div class="card-body">
+      <p>This is a <a href="https://www.wolverinesoft.org/" class="highlight-link">WolverineSoft Studio</a> game.
+      <ul>
+        <li>🎥 <strong>Cutscene Implementation:</strong> Designed and implemented multiple in-game cutscenes using
+          Unity's built-in tools, including the Playable Director, to enhance narrative elements and player experience.
+        </li>
+        <li>🤖 <strong>Player-Environment Interactions:</strong> Programmed dynamic interactions between the player
+          character and various in-game objects to enrich gameplay.</li>
+        <li>🗺️ <strong>Level Design:</strong> Created six unique level maps and applied layered tilesets using LDTK to
+          develop immersive environments.</li>
+        <li>📋 <strong>Project Management:</strong> Collaborated with team members using Jira for effective project
+          planning and task tracking.</li>
+        <li>🔄 <strong>Version Control:</strong> Used Git for code version control and coordinated with teammates for
+          seamless integration and code collaboration.</li>
+      </ul>
+      </p>
+    </div>
+  </div>
+
+  <!-- Technology Used Section -->
+  <div id="technology-used-sotf" class="card tech-section">
+    <div class="card-header">
+      <h3>Technology Used</h3>
+    </div>
+    <div class="card-body">
+      <ul>
+        <li>💻 <strong>C#:</strong> Used for scripting and development of core game mechanics.</li>
+        <li>🎮 <strong>Unity:</strong> Leveraged Unity's built-in functionalities for 2D game development, including
+          physics and rendering systems.</li>
+        <li>🔔 <strong>Eventbus Library:</strong> Managed in-game event messaging and inter-component communication.
+        </li>
+        <li>🗺️ <strong>LDTK (Level Designer Toolkit):</strong> Utilized for designing and implementing tilemaps for
+          levels.</li>
+      </ul>
+    </div>
+  </div>
 
   <hr>
   <h2 id="bio-452">BIOLOGY 452: Field Ecology of Snail-Fungus Interaction</h2>
   <div class="image-container">
     <div class="image-item">
-      <img src="src/p3-cover.png" alt=" ">
+      <img src="src/p3-cover.png" alt=" " style="width: 800px; height: auto;">
       <!-- <div class="caption">Start Menu</div> -->
     </div>
-    <div class="image-item">
-      <img src="src/p3-thumb.pic.jpg" alt=" ">
-      <!-- <div class="caption">Thumbnail</div> -->
+    <!-- <div class="image-item"> -->
+    <!-- <img src="src/p3-thumb.pic.jpg" alt=" "> -->
+    <!-- <div class="caption">Thumbnail</div> -->
+    <!-- </div> -->
+  </div>
+
+  <!-- About the Project Section -->
+  <div id="about-project" class="card about-section">
+    <div class="card-header">
+      <h3>About the Project</h3>
+    </div>
+    <div class="card-body">
+      <p>When fungus meets the snails - who will rule the grassland? In this two-player asymmetric
+        RTS game, players control Mushroom and Snail as two opposing species that aim to destroy each other in an
+        enclosed natural environment with limited resources. Each side has unique abilities and tools to help it
+        achieve dominance over the other.</p>
+      <div class="video-container">
+        <div class="video-responsive">
+          <iframe src="https://www.youtube.com/embed/sFD_M-HsKa8" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+      <!-- <button class="show-button" onclick="toggleImages('p3-CGs')">Show / Hide CGs</button> -->
+      <!-- <button class="show-button" onclick="toggleImages('p3-inGame')">Show / Hide screenshots</button> -->
+      <div class="image-container" id="p3-CGs" style="display: flex;">
+        <div class="image-item">
+          <img src="src/p3-cg-1.pic.jpg" alt="Transit CG 1 - Snail Dreams">
+          <div class="caption">Snail Dreams</div>
+        </div>
+        <div class="image-item">
+          <img src="src/p3-CG-3.png" alt="Transit CG 2 - Mushroom Troopers">
+          <div class="caption">Mushroom Troopers</div>
+        </div>
+        <div class="image-item">
+          <img src="src/p3-CG-2.pic.jpg" alt="Trailor CG - Enemies">
+          <div class="caption">Enemies</div>
+        </div>
+      </div>
+
+
+      <div class="image-container" id="p3-inGame" style="display: flex;">
+        <div class="image-item">
+          <img src="src/p3-InGame01.png" alt=" ">
+          <div class="caption">Tutorial</div>
+        </div>
+        <div class="image-item">
+          <img src="src/p3-InGame02.png" alt=" ">
+          <div class="caption">In-game Early stage</div>
+        </div>
+        <div class="image-item">
+          <img src="src/p3-InGame03.png" alt=" ">
+          <div class="caption">In-game Late stage</div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <button class="show-button" onclick="toggleImages('p3-CGs')">Show / Hide CGs</button>
-
-  <div class="image-container" id="p3-CGs" style="display: none;">
-    <div class="image-item">
-      <img src="src/p3-cg-1.pic.jpg" alt=" ">
-      <div class="caption">Transit CG 1 - Snail Dreams</div>
+  <!-- My Contributions Section -->
+  <div id="my-contributions" class="card contributions-section">
+    <div class="card-header">
+      <h3>My Contributions</h3>
     </div>
-    <div class="image-item">
-      <img src="src/p3-CG-3.png" alt=" ">
-      <div class="caption">Transit CG 2 - Mushroom Troopers </div>
-    </div>
-    <div class="image-item">
-      <img src="src/p3-CG-2.pic.jpg" alt=" ">
-      <div class="caption">Trailor CG - Enemies</div>
-    </div>
-  </div>
-
-  <h3>About the Project:</h3>
-  <p>When fungus meets the snails - who will be the ultimate king of the grassland? In this two-player asymmetric RTS
-    game, players control Mushroom and Snail as two opposing species that aim to
-    destroy each other in an enclosed natural environment with limited resources. Each side has unique abilities and
-    tools to help it achieve dominance over the other.</p>
-
-  <p>Check out the game trailer!
-    <a href="https://youtu.be/sFD_M-HsKa8">Youtube link</a>
-  </p>
-
-  <button class="show-button" onclick="toggleImages('p3-inGame')">Show / Hide screenshots</button>
-
-  <div class="image-container" id="p3-inGame" style="display: none;">
-    <div class="image-item">
-      <img src="src/p3-InGame01.png" alt=" ">
-      <div class="caption">Tutorial screenshot</div>
-    </div>
-    <div class="image-item">
-      <img src="src/p3-InGame02.png" alt=" ">
-      <div class="caption">In-game Early stage - explore & develop!</div>
-    </div>
-    <div class="image-item">
-      <img src="src/p3-InGame03.png" alt=" ">
-      <div class="caption">In-game Late stage - messy & Intense!</div>
+    <div class="card-body">
+      <ul>
+        <li>🌱 Implemented the hyphae/mucus features and their functionalities.</li>
+        <li>⚔️ Developed auto-attack mechanics for the small units.</li>
+        <li>💥 Worked on the damage-health system for in-game interactions.</li>
+        <li>🎨 Created in-game art assets, including sprites, menus, and CGs.</li>
+      </ul>
+      <p>This game was jointly developed by <a href="https://dawnsqrl.github.io/2cb416c75d1f9d14/">Xiaoyu Liu</a>,
+        <a href="https://lllllcf.github.io/portfolio/index.html">Chengfan Li</a>, <a
+          href="https://yushi111.github.io/">Yushi She</a>, and me.
+      </p>
     </div>
   </div>
 
-  <h3>My Contributions:</h3>
-  <p>This game was jointly developed by <a href="https://dawnsqrl.github.io/2cb416c75d1f9d14/">Xiaoyu Liu</a>, <a
-      href="https://lllllcf.github.io/portfolio/index.html">Chengfan Li</a>, <a href="https://yushi111.github.io/">Yushi
-      She</a>, and me.
-    I implemented the hyphae/mucus and their functionalities, the auto-attack features of little snail & mushroom units,
-    the damage-health system, etc. I also created the in-game art assets, including the sprites, the menu, the CGs, etc.
-  </p>
-  <h3>Technology Used:</h3>
-  <p>This project is based on a non-URP 2D Unity template. We made use of an RTS gameplay framework developed by Code
-    Monkey. All images and downloadable archives are hosted on the GitHub repository. </p>
+  <!-- Technology Used Section -->
+  <div id="technology-used" class="card tech-section">
+    <div class="card-header">
+      <h3>Technology Used</h3>
+    </div>
+    <div class="card-body">
+      <p>This project is based on a non-URP 2D Unity template.</p>
 
-  <h3>Download the game: <a
-      href="https://lllllcf.itch.io/biology-452-field-ecology-of-snail-fungus-interaction">Itch.io</a></h3>
-  <h3>Game webpages: <a href="https://lllllcf.itch.io/biology-452-field-ecology-of-snail-fungus-interaction">BIO 452 -
-      Itch.io</a> |
-    <a href="https://www.indiedb.com/games/biology-452-field-ecology-of-snail-fungus-interaction">BIO 452 - Indiedb</a>
-  </h3>
-  <h3>Codebase: <a href="https://github.com/dawnsqrl/eecs494-p3">BIO 452 - Github</a></h3>
+      <p>We made use of an RTS gameplay framework developed by
+        <a href="https://unitycodemonkey.com/">Code Monkey Unity</a>. All images and downloadable archives are hosted on
+        the GitHub repository.
+      </p>
+    </div>
+  </div>
+
+  <!-- Download Section -->
+  <div id="download" class="card">
+    <div class="card-body">
+      <details>
+        <summary><strong>Download BIO 452 for Windows or MacOS</strong></summary>
+        <div class="mt-3">
+          <p>Download the Game:</p>
+          <a href="https://lllllcf.itch.io/biology-452-field-ecology-of-snail-fungus-interaction"
+            class="highlight-link">Itch.io</a>
+        </div>
+        <div class="mt-3">
+          <p>Game Webpages:</p>
+          <a href="https://lllllcf.itch.io/biology-452-field-ecology-of-snail-fungus-interaction">BIO 452 - Itch.io</a>
+          |
+          <a href="https://www.indiedb.com/games/biology-452-field-ecology-of-snail-fungus-interaction">BIO 452 -
+            Indiedb</a>
+        </div>
+        <div class="mt-3">
+          <p>Codebase:</p>
+          <a href="https://github.com/dawnsqrl/eecs494-p3">Github</a>
+        </div>
+      </details>
+    </div>
+  </div>
+  </div>
   <hr>
-  <h2 id="crazy-canvas">Crazy Canvas</h2>
 
+  <h2 id="crazy-canvas">CRAZY CANVAS</h2>
   <div class="image-container">
     <div class="image-item">
-      <img src="src/p2-cover.png" alt=" ">
+      <img src="src/p2-cover.png" alt=" " style="width: 100%; height: auto;">
       <div class="caption">Start menu</div>
     </div>
-
     <div class="image-item">
-      <img src="src/p2.png" alt=" ">
+      <img src="src/p2.png" alt=" " style="width: 100%; height: auto;">
       <div class="caption">In-Game screenshot</div>
     </div>
   </div>
 
-  <h3>About the Project:</h3>
-  <p><i>Crazy Canvas</i> is a two-player casual game developed using Unity and C# scripts. In this game, players are
-    encouraged to sprint toward gameobjects and the opponent. Doing so allows players to color the ground, which leads
-    to a fancy visual result. </p>
-  <h3>My Contributions:</h3>
-  <p>I developed the game in 2 weeks. I designed different maps, various special effects, and the art style. I also
-    implemented the core mechanisms. </p>
-  <h3>Technology Used:</h3>
-  <p>The game was developed using the programming language C#, a robust and widely-used programming language in the
-    gaming industry, and Unity, a popular game engine that provides a suite of tools and features for cross-platform
-    game development. In this game, I explored various functionalities of Unity such as the particle system and the UI
-    panel, to improve players' game experience.
+  <!-- About the Project Section -->
+  <div id="about-project-crazy-canvas" class="card about-section">
+    <div class="card-header">
+      <h3>About the Project</h3>
+    </div>
+    <div class="card-body">
+      <p><i>Crazy Canvas</i> is a two-player casual game developed using Unity and C# scripts. In this game, players are
+        encouraged to sprint toward game objects and the opponent. Doing so allows players to color the ground, which
+        leads to a fancy visual result.</p>
+    </div>
+  </div>
 
-    The WebGL build of the game is hosted on Github Pages, a web hosting service that allows developers to host static
-    web pages directly from a GitHub repository.
-  </p>
-  <h3>Check it out: <a
-      href="https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FYanmeeei%2Fportfolio%2Ftree%2Fmain%2FDownloadable%2FCrazyCanvas%2FWindows">Windows
-      download</a> |
-    <a
-      href="https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FYanmeeei%2Fportfolio%2Ftree%2Fmain%2FDownloadable%2FCrazyCanvas%2FMac.app">MacOS
-      download</a></a>
-    <!-- | <a href="https://yanmeeei.github.io/CrazyCanvas">WebGL build (Not Compatible) -->
-  </h3>
-  <h3>Codebase: <a href="https://github.com/dawnsqrl/eecs494-p3">Crazy Canvas - Github</a></h3>
+  <!-- My Contributions Section -->
+  <div id="my-contributions-crazy-canvas" class="card contributions-section">
+    <div class="card-header">
+      <h3>My Contributions</h3>
+    </div>
+    <div class="card-body">
+      <p>I developed the game in 2 weeks. I designed different maps, various special effects, and the art style. I also
+        implemented the core mechanisms.</p>
+    </div>
+  </div>
+
+  <!-- Technology Used Section -->
+  <div id="technology-used-crazy-canvas" class="card tech-section">
+    <div class="card-header">
+      <h3>Technology Used</h3>
+    </div>
+    <div class="card-body">
+      <p>The game was developed using the programming language C#, a robust and widely-used programming language in the
+        gaming industry, and Unity, a popular game engine that provides a suite of tools and features for cross-platform
+        game development. In this game, I explored various functionalities of Unity such as the particle system and the
+        UI panel to improve players' game experience.</p>
+      <p>The WebGL build of the game is hosted on GitHub Pages, a web hosting service that allows developers to host
+        static web pages directly from a GitHub repository.</p>
+    </div>
+  </div>
+
+  <!-- Download Section -->
+  <div id="download-crazy-canvas" class="card download-section">
+    <details>
+      <summary>Download Crazy Canvas & More Information</summary>
+      <div class="card-body">
+        <p>Check it out:</p>
+        <ul>
+          <li><a
+              href="https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FYanmeeei%2Fportfolio%2Ftree%2Fmain%2FDownloadable%2FCrazyCanvas%2FWindows">Windows
+              download</a></li>
+          <li><a
+              href="https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FYanmeeei%2Fportfolio%2Ftree%2Fmain%2FDownloadable%2FCrazyCanvas%2FMac.app">MacOS
+              download</a></li>
+        </ul>
+        <p>Codebase:</p>
+        <p><a href="https://github.com/dawnsqrl/eecs494-p3">Crazy Canvas - Github</a></p>
+      </div>
+    </details>
+  </div>
+
 
   <hr>
-  <h2 id="zelda-remaster">Legend of Zelda 1986 - Unity Remaster</h2>
-
+  <h2 id="zelda-remaster">LEGEND OF ZELDA 1986 - UNITY REMASTER</h2>
   <div class="image-container">
     <div class="image-item">
-      <img src="src/p1.png" alt=" ">
+      <img src="src/p1.png" alt=" " style="width: 100%; height: auto;">
       <div class="caption">Original Level</div>
     </div>
     <div class="image-item">
-      <img src="src/p1-cus.png" alt=" ">
+      <img src="src/p1-cus.png" alt=" " style="width: 100%; height: auto;">
       <div class="caption">Custom Level - Old Man Room</div>
     </div>
     <div class="image-item">
-      <img src="src/p1-cus-2.png" alt=" ">
+      <img src="src/p1-cus-2.png" alt=" " style="width: 100%; height: auto;">
       <div class="caption">Custom Level - Room 1</div>
     </div>
   </div>
 
-  <h3>About the Project: </h3>
-  <p>This is a Unity remaster of the classic 1986 game <i>The Legend of Zelda</i>, with a customized extra level that
-    features new maps, weapons, and mechanisms. </p>
-  <h3>My Contributions:</h3>
-  <p><a href="https://dawnsqrl.github.io/2cb416c75d1f9d14/">Xiaoyu Liu</a> and I developed the remaster in 3 weeks. I am
-    responsible for implementing various enemies, camera/room transitions, doorways and blockers, enemy/collectable
-    power-up placements, customized level map generation, and relevant testing/bug fixes. We worked together on audio
-    implementation and customized level design.</p>
-  <h3>Technology Used:</h3>
-  <p>The remaster was developed using the programming language C#, a robust and widely-used programming language in the
-    gaming industry, and Unity, a popular game engine that provides a suite of tools and features for cross-platform
-    game development. The remaster utilizes the capabilities of Unity to bring a modern touch to the classic game while
-    maintaining the original charm and gameplay.
+  <!-- About the Project Section -->
+  <div id="about-project-zelda" class="card about-section">
+    <div class="card-header">
+      <h3>About the Project</h3>
+    </div>
+    <div class="card-body">
+      <p>This is a Unity remaster of the classic 1986 game <i>The Legend of Zelda</i>, with a customized extra level
+        that features new maps, weapons, and mechanisms.</p>
+    </div>
+  </div>
 
-    The WebGL build of the game is hosted on Github Pages, a web hosting service that allows developers to host static
-    web pages directly from a GitHub repository.
-  </p>
-  <h3>Check it out: <a href="https://yanmeeei.github.io/Zelda1986-UnityRemaster">WebGL build</a></h3>
+  <!-- My Contributions Section -->
+  <div id="my-contributions-zelda" class="card contributions-section">
+    <div class="card-header">
+      <h3>My Contributions</h3>
+    </div>
+    <div class="card-body">
+      <p><a href="https://dawnsqrl.github.io/2cb416c75d1f9d14/">Xiaoyu Liu</a> and I developed the remaster in 3 weeks.
+        I was responsible for implementing various enemies, camera/room transitions, doorways and blockers,
+        enemy/collectable power-up placements, customized level map generation, and relevant testing/bug fixes. We
+        worked together on audio implementation and customized level design.</p>
+    </div>
+  </div>
+
+  <!-- Technology Used Section -->
+  <div id="technology-used-zelda" class="card tech-section">
+    <div class="card-header">
+      <h3>Technology Used</h3>
+    </div>
+    <div class="card-body">
+      <p>The remaster was developed using the programming language C#, a robust and widely-used programming language in
+        the gaming industry, and Unity, a popular game engine that provides a suite of tools and features for
+        cross-platform game development. The remaster utilizes the capabilities of Unity to bring a modern touch to the
+        classic game while maintaining the original charm and gameplay.</p>
+      <p>The WebGL build of the game is hosted on GitHub Pages, a web hosting service that allows developers to host
+        static web pages directly from a GitHub repository.</p>
+    </div>
+  </div>
+
+  <!-- Download Section -->
+  <div id="download-zelda" class="card download-section">
+    <div class="card-header">
+      <h3>Download Zelda Remaster</h3>
+    </div>
+    <div class="card-body">
+      <p><a href="https://yanmeeei.github.io/Zelda1986-UnityRemaster">WebGL build</a></p>
+    </div>
+  </div>
+
+  <!-- <h3>Check it out: <a href="https://yanmeeei.github.io/Zelda1986-UnityRemaster">WebGL build</a></h3> -->
 
   <hr>
-  My Steam profile is <a href="https://steamcommunity.com/profiles/76561198383984362/">here</a>. Welcome to connect!
+  <a href="https://steamcommunity.com/profiles/76561198383984362/" class="highlight-link">My Steam Profile</a>. Welcome
+  to connect!
 
   <hr>
   Thanks for reading this page - here are some cute dragons for you to pet!!
   <br>
-  <a href="https://dragcave.net/view/8yyfG"><img src="https://dragcave.net/image/8yyfG.gif"
+  <a href="https://dragcave.net/view/Hd3Gu"><img src="https://dragcave.net/image/Hd3Gu.gif"
       style="border-width:0; width:100px; height:100px;" alt="Adopt one today!" /></a>
   <a href="https://dragcave.net/view/Egxd0"><img src="https://dragcave.net/image/Egxd0.gif"
       style="border-width:0; width:100px; height:100px;" alt="Adopt one today!" /></a>
@@ -322,8 +532,8 @@
       style="border-width:0; width:100px; height:100px;" alt="Adopt one today!" /></a>
   <a href="https://dragcave.net/view/Hpl7W"><img src="https://dragcave.net/image/Hpl7W.gif"
       style="border-width:0; width:100px; height:100px;" alt="Adopt one today!" /></a>
-  <a href="https://dragcave.net/view/susnH"><img src="https://dragcave.net/image/susnH.gif"
-      style="border-width:0; width:100px; height:100px;" alt="Adopt one today!" /></a>
+  <a href="https://dragcave.net/view/SPFWm"><img src="https://dragcave.net/image/SPFWm.gif"
+      style=" border-width:0; width:100px; height:100px;" alt="Adopt one today!" /></a>
   <a href="https://dragcave.net/view/w84VQ"><img src="https://dragcave.net/image/w84VQ.gif"
       style="border-width:0; width:100px; height:100px;" alt="Adopt one today!" /></a>
   <br>
